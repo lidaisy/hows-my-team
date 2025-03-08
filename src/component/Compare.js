@@ -8,17 +8,13 @@ function Compare() {
     return (
         <div>
             <div className="compare-header">
+                <p className="text">Compare Teams:</p>
                 <Dropdown value={team1}
-                          handleChange={(event) => {
-                              setTeam1(event.target.value);
-                          }}
+                          handleChange={(event) => setTeam1(event.target.value)}
                 />
 
                 <Dropdown value={team2}
-                          handleChange={(event) => {
-                              console.log(event.target.value);
-                              setTeam2(event.target.value);
-                          }}
+                          handleChange={(event) => setTeam2(event.target.value)}
                 />
             </div>
         </div>

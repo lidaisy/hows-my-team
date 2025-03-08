@@ -13,15 +13,20 @@
   }
 }
 
-.App-header {
+.App-header-container {
   background-color: #282c34;
   min-height: 10vh;
+}
+
+.App-header{
+  margin: 0px calc(30vw) 0px 40px;
+  /*top right bottom left*/
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: cornflowerblue;
 }
 
 .App-header-button{
@@ -29,6 +34,24 @@
   height: 30px;
   background-color: #282c34;
   border: none;
+  font-size: calc(3px + 2vmin);
+  cursor: pointer;
+}
+
+.App-content-container{
+  /*background-color: #3b3d40;*/
+  min-height: 100vh;
+}
+
+.League-component-container{
+  margin-left: 40px;
+  margin-right: 40px;
+  width: calc(100vw - 120px);
+}
+
+.Table-container{
+  background-color: white;
+  overflow: scroll;
 }
 
 .App-button{
@@ -57,4 +80,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.text{
+  text-align: left;
+  padding: 10px;
+  font-size: 20px;
 }

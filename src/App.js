@@ -15,32 +15,34 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          League Predictor
-        </p>
+      <header className="App-header-container">
+          <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>
+                  League Predictor
+              </p>
 
-        <Button text = "League Table"
-                isHeader={true}
-                onClick={() => {
-                    console.log("clicked 0");
-                    setPage(0)
-                }}
-        />
+              <Button text = "League Table"
+                      isHeader={true}
+                      onClick={() => {
+                          console.log("clicked 0");
+                          setPage(0)
+                      }}
+              />
 
-        <Button text = "Matches" // do it by team as well
-                isHeader={true}
-                onClick={() => setPage(1)}
-        />
+              <Button text = "Matches" // do it by team as well
+                      isHeader={true}
+                      onClick={() => setPage(1)}
+              />
 
-        <Button text = "Compare Teams"
-                isHeader={true}
-                onClick={() => setPage(2)}
-        />
+              <Button text = "Compare Teams"
+                      isHeader={true}
+                      onClick={() => setPage(2)}
+              />
+          </div>
       </header>
 
-      <div>
+      <div className="App-content-container">
           {page === 0 ?
               <LeagueTable/>
           :
