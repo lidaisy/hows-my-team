@@ -1,8 +1,6 @@
 import {MenuItem, Select} from "@mui/material";
 
 function Dropdown(props){
-    // const clubsDict = {0: 'Arsenal', 1: 'Aston Villa', 2: 'Bournemouth', 3: 'Brentford', 4: 'Brighton & Hove Albion', 5: 'Chelsea', 6: 'Crystal Palace', 7: 'Everton', 8: 'Fulham', 9: 'Ipswich Town', 10: 'Leicester City', 11: 'Liverpool', 12: 'Manchester City', 13: 'Manchester United', 14: 'Newcastle United', 15: 'Nottingham Forest', 16: 'Southampton', 17: 'Tottenham Hotspur', 18: 'West Ham United', 19: 'Wolves'}
-
     const clubs = [
         {name: 'Arsenal', val: 0},
         {name: 'Aston Villa', val: 1},
@@ -25,15 +23,18 @@ function Dropdown(props){
     {name: 'West Ham United', val: 18},
     {name: 'Wolves', val: 19}]
 
+    const outcomes = [{name: 'Win', val: 0}, {name: 'Draw', val: 1}, {name: 'Lose', val: 2}]
+
     return (
         <Select className="clubs-select"
+                style={props.width ? {width: props.width} : {}}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={props.value}
-            label="Select Club"
+            label={props.label}
             onChange={props.handleChange}
         >
-            {clubs.map((item) => (
+            {(props.isClubs ? clubs : outcomes).map((item) => (
                 <MenuItem value={item.val} key={item.val}>{item.name}</MenuItem>
             ))}
         </Select>
