@@ -38,6 +38,18 @@
   color: #61dafb;
 }
 
+.compare-header{
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+}
+
+.clubs-select{
+  margin:10px;
+  border: 2px;
+  width: 200px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

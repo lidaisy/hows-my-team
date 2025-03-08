@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from './tools/Button';
-import {Table, TableContainer, TableCell, TableHead, TableRow, TableBody} from "@mui/material";
+import LeagueTable from "./component/LeagueTable";
+import Matches from "./component/Matches";
+import Compare from "./component/Compare";
+import {useState} from "react";
 
 function App() {
     // 0 => table
     // 1 => matches
     // 2 => comparing
-    let page = 0
+    const [page, setPage] = useState(0);
   let rows = [{name:'Liverpool', mp:29, w:21, d:7, l:1, points:70 }, {name:'Liverpool', mp:29, w:21, d:7, l:1, points:70 }]
 
   return (
@@ -20,91 +23,29 @@ function App() {
 
         <Button text = "League Table"
                 isHeader={true}
-                onClick={() => page = 0}
+                onClick={() => {
+                    console.log("clicked 0");
+                    setPage(0)
+                }}
         />
 
         <Button text = "Matches" // do it by team as well
                 isHeader={true}
-                onClick={() => page = 1}
+                onClick={() => setPage(1)}
         />
 
-        <Button text = "Compare"
+        <Button text = "Compare Teams"
                 isHeader={true}
-                onClick={() => page = 2}
+                onClick={() => setPage(2)}
         />
       </header>
 
       <div>
           {page === 0 ?
-              <TableContainer>
-                  <Table>
-                      <TableHead>
-                          <TableRow>
-                              <TableCell>Club</TableCell>
-                              <TableCell align="right">Matches Played</TableCell>
-                              <TableCell align="right">Won</TableCell>
-                              <TableCell align="right">Lost</TableCell>
-                              <TableCell align="right">Drew</TableCell>
-                              <TableCell align="right">Points</TableCell>
-                          </TableRow>
-                      </TableHead>
-
-                      <TableBody>
-                          {rows.map((row) => (
-                              <TableRow
-                                  key={row.name}
-                                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                              >
-                                  <TableCell component="th" scope="row">
-                                      {row.name}
-                                  </TableCell>
-                                  <TableCell align="right">{row.mp}</TableCell>
-                                  <TableCell align="right">{row.w}</TableCell>
-                                  <TableCell align="right">{row.d}</TableCell>
-                                  <TableCell align="right">{row.l}</TableCell>
-                                  <TableCell align="right">{row.points}</TableCell>
-                              </TableRow>
-                          ))}
-                      </TableBody>
-                  </Table>
-              </TableContainer>
-
+              <LeagueTable/>
           :
-              <TableContainer>
-                  <Table>
-                      <TableHead>
-                          <TableRow>
-                              <TableCell>Club</TableCell>
-                              <TableCell align="right">Matches Played</TableCell>
-                              <TableCell align="right">Won</TableCell>
-                              <TableCell align="right">Lost</TableCell>
-                              <TableCell align="right">Drew</TableCell>
-                              <TableCell align="right">Points</TableCell>
-                          </TableRow>
-                      </TableHead>
-
-                      <TableBody>
-                          {rows.map((row) => (
-                              <TableRow
-                                  key={row.name}
-                                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                              >
-                                  <TableCell component="th" scope="row">
-                                      {row.name}
-                                  </TableCell>
-                                  <TableCell align="right">{row.mp}</TableCell>
-                                  <TableCell align="right">{row.w}</TableCell>
-                                  <TableCell align="right">{row.d}</TableCell>
-                                  <TableCell align="right">{row.l}</TableCell>
-                                  <TableCell align="right">{row.points}</TableCell>
-                              </TableRow>
-                          ))}
-                      </TableBody>
-                  </Table>
-              </TableContainer>
+              <Compare/>
           }
-
-
       </div>
     </div>
   );
