@@ -22,7 +22,8 @@ function App() {
                   League Predictor
               </p>
 
-              <Button text = "League Table"
+              <Button color={page === 0 ? 'green' : null}
+                      text = "League Table"
                       isHeader={true}
                       onClick={() => {
                           console.log("clicked 0");
@@ -30,12 +31,14 @@ function App() {
                       }}
               />
 
-              <Button text = "Matches" // do it by team as well
+              <Button color={page === 1 ? 'green' : null}
+                      text = "Matches" // do it by team as well
                       isHeader={true}
                       onClick={() => setPage(1)}
               />
 
-              <Button text = "Compare Teams"
+              <Button color={page === 2 ? 'green' : null}
+                      text = "Compare Teams"
                       isHeader={true}
                       onClick={() => setPage(2)}
               />
